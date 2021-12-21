@@ -17,22 +17,22 @@ defmodule DepthScan do
 end
 
 defmodule Main do
-  def part1() do
+  def read_input() do
     System.argv()
     |> hd()
     |> File.read!()
     |> String.split()
     |> Enum.map(&String.to_integer/1)
+  end
+
+  def part1() do
+    Main.read_input()
     |> DepthScan.scan()
     |> IO.puts()
   end
 
   def part2() do
-    System.argv()
-    |> hd()
-    |> File.read!()
-    |> String.split()
-    |> Enum.map(&String.to_integer/1)
+    Main.read_input()
     |> DepthScan.superscan()
     |> IO.puts()
   end
